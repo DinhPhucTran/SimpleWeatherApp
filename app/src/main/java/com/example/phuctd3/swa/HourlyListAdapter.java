@@ -1,9 +1,12 @@
 package com.example.phuctd3.swa;
 
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -35,6 +38,17 @@ public class HourlyListAdapter extends RecyclerView.Adapter<HourlyListAdapter.Vi
         HourDetail detail = mItems.get(position);
         holder.temp.setText(detail.getTemp());
         holder.des.setText(detail.getDes());
+        if(detail.getTime().contains("00h")) {
+            holder.time.setTypeface(Typeface.DEFAULT_BOLD);
+        } else {
+            holder.time.setTypeface(Typeface.DEFAULT);
+        }
+        holder.time.setText(detail.getTime());
+        try{
+            holder.icon.setImageResource(Utils.getWeatherIcon(detail.getIcon()));
+        } catch (Exception e) {
+            Log.e("----> ", e.toString());
+        }
     }
 
     @Override
@@ -53,6 +67,7 @@ public class HourlyListAdapter extends RecyclerView.Adapter<HourlyListAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView temp;
+        public ImageView icon;
         public TextView des;
         public TextView time;
 
@@ -61,6 +76,7 @@ public class HourlyListAdapter extends RecyclerView.Adapter<HourlyListAdapter.Vi
             temp = (TextView) itemView.findViewById(R.id.temp);
             des = (TextView) itemView.findViewById(R.id.des);
             time = (TextView) itemView.findViewById(R.id.time);
+            icon = (ImageView) itemView.findViewById(R.id.icon);
         }
     }
 }

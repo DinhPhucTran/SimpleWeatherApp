@@ -9,16 +9,18 @@ public class HourDetail {
     private String temp;
     private String des;
     private String time;
+    private String icon;
 
     public HourDetail(){
         temp = "0";
         des = "";
     }
 
-    public HourDetail(String temp, String des, String time) {
+    public HourDetail(String temp, String des, String time, String icon) {
         this.temp = temp;
         this.des = des;
         this.time = time;
+        this.icon = icon;
     }
 
     public String getTemp() {
@@ -43,5 +45,13 @@ public class HourDetail {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 }

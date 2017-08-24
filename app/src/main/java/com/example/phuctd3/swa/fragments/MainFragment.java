@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.phuctd3.swa.HourDetail;
 import com.example.phuctd3.swa.HourlyListAdapter;
+import com.example.phuctd3.swa.MainActivity;
 import com.example.phuctd3.swa.R;
 
 import java.util.List;
@@ -35,11 +36,19 @@ public class MainFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         mRecyclerView.setAdapter(mAdapter);
 
+        if(MainActivity.getHourlyList() != null) {
+            mAdapter.setItems(MainActivity.getHourlyList());
+        }
         return view;
     }
 
     public void setHourlyList(List<HourDetail> list) {
+        if(mAdapter != null)
         mAdapter.setItems(list);
+    }
+
+    public void setCurrentTemp(String temp) {
+
     }
 
 }
