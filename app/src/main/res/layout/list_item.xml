@@ -3,7 +3,10 @@
     android:layout_width="100dp"
     android:layout_height="match_parent"
     android:layout_margin="2dp"
-    android:background="@color/colorTransBg">
+    android:background="@drawable/item_bg"
+    android:paddingBottom="2dp"
+    android:clickable="true">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,7 +15,7 @@
         android:textSize="22sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/colorLighTextPrimary"/>
+        android:textColor="@color/colorLighTextPrimary"     />
 
     <ImageView
         android:layout_width="50dp"
